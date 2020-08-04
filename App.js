@@ -1,29 +1,54 @@
 import 'react-native-gesture-handler'
+import { Provider } from 'react-redux'
+import { connect } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers'
+import middleware from './middleware'
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import DeckList from './components/DeckList'
-import NewDeck from './components/NewDeck'
-import DeckItem from './components/DeckItem'
-import { blue } from './utils/colors'
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet, Text, View, RecyclerViewBackedScrollView } from 'react-native';
+import Navigator from './components/Navigator'
+import { handleGetDecks } from './actions'
+import {setLocalNotification} from './utils/notification'
 
-const Tab = createBottomTabNavigator()
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator initialRouteName="DeckList">
-        <Tab.Screen name="DeckList" component={DeckList} />
-        <Tab.Screen name="NewDeck" component={NewDeck} />
-      </Tab.Navigator>
-    </NavigationContainer>
+const store = createStore(reducer, middleware)
 
-  );
+class App extends React.Component {
+
+
+  componentDidMount() {
+    setLocalNotification()
+
+  }
+
+  render() {
+
+    return (
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
+
+    )
+  }
 }
+
+// function mapStateToProps(store) {
+
+//   const deckObjectsByName = store.decksReducer;
+//   const decks = [];
+
+//   for (const deckName in deckObjectsByName) {
+//     decks.push(deckObjectsById[deckName]);
+//   }
+
+//   return {
+//     decks
+//   };
+// }
+
+export default App
+
 
 const styles = StyleSheet.create({
   container: {
