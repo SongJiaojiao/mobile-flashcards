@@ -1,11 +1,9 @@
 # Mobile Flashcards Project
 
 ## Description
+The mobile application allows users to study collections of flashcards. The app will allow users to create different categories of flashcards called "decks", add flashcards to those decks, then take quizzes on those decks.
 
-This 'Would you rather" game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
-
-In this app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
-![](src/img/Would-you-rather.png)
+![](img/screenshot.png)
 
 ## Platform supported
 Mobile flash card has been developed and tested with only iOS. Currently the platform support is only iOS
