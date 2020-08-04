@@ -17,9 +17,9 @@ For further details of expo setup, refer this link and follow the setup -> https
 
 Steps to get this app working on local.
 * Clone the repo: git clone https://github.com/SongJiaojiao/mobile-flashcards.git
-* Install prohect dependencies: npm install
-* Run server locally: npm start
-* Navigate to http://localhost:3000 and see the app running.
+* Install prohect dependencies: npm install or yarn install
+* Run server locally: npm start or expo start. 
+* You should see your project showing up in your expo app, or you can use simulators on your laptop.
 
 ## Data
 
